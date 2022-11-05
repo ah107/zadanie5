@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="ahabr"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-05 06:50:39 PM"/>
+        <attribute name="created" value="YWhhYnI7REVTS1RPUC1MMTBRODlCOzIwMjItMTEtMDU7MDY6MDM6MTMgUE07Mjc5Ng=="/>
+        <attribute name="edited" value="YWhhYnI7REVTS1RPUC1MMTBRODlCOzIwMjItMTEtMDU7MDY6NTA6MzkgUE07MTsyOTE0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="N, n1, n2, k2, k1, i" type="Integer" array="False" size=""/>
+            <comment text="N-liczba s&#281;dzi&#243;w, k1-liczba tych, kt&#243;rzy wystawili ocen&#281;&#13;&#10;n1-oceny, n2-suma ocen, k2-liczba pozosta&#322;ych s&#281;dzi&#243;w, i-licznik"/>
+            <declare name="nno, nwo" type="Real" array="False" size=""/>
+            <comment text="nno-najmniejsza ocena&#13;&#10;nwo-najwy&#380;sza ocena"/>
+            <input variable="N"/>
+            <input variable="k1"/>
+            <if expression="N&gt;k1">
+                <then/>
+                <else>
+                    <output expression="&quot;liczba tych, kt&#243;rzy wystawili ocen&#281; nie mo&#380;e by&#263; wi&#281;ksza ni&#380; &#322;&#261;czna liczba s&#281;dzi&#243;w&quot;" newline="True"/>
+                    <breakpoint/>
+                </else>
+            </if>
+            <assign variable="n2" expression="0"/>
+            <for variable="i" start="1" end="k1" direction="inc" step="1">
+                <input variable="n1"/>
+                <if expression="n1&gt;=-3 &amp;&amp; n1&lt;=3">
+                    <then/>
+                    <else>
+                        <output expression="&quot;niepoprawne dane, -3&lt;=n1&lt;=3&quot;" newline="True"/>
+                        <breakpoint/>
+                    </else>
+                </if>
+                <assign variable="n2" expression="n2+n1"/>
+            </for>
+            <assign variable="k2" expression="N-k1"/>
+            <assign variable="nno" expression="(k2*(-3)+n2)/N"/>
+            <assign variable="nwo" expression="(k2*3+n2)/N"/>
+            <output expression="nno" newline="True"/>
+            <output expression="nwo" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
